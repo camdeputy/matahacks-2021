@@ -29,7 +29,7 @@ function myFunction(rocket_name) {
 	var single_tree = 0.0217724
 	var total_trees = Math.ceil(co2_emission / single_tree)
 
-	var output = `Based on your choice of ${rocket_name}, it would take approximately ${total_trees} trees to offset the carbon produced from this launch `
+	var output = `It would take the ${rocket_name} rocket approximately ${total_trees} trees 1 year to offset the carbon emissions produced from launch `
 	document.getElementById("text-trees").innerHTML=output
 
 
