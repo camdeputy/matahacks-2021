@@ -30,13 +30,13 @@ header span {
 }
 
 .rockets {
-    position: fixed;
+    position: absolute;
     top: 25%;
     left: 10%;
 }
 
 .trees {
-    position: fixed;
+    position: absolute;
     top: 25%;
     right: 10%;
 }
@@ -82,6 +82,13 @@ header span {
 
 .content {
     text-align: center;
+}
+
+.unity-section {
+    display: flex;
+    margin-top: 30%;
+    margin-bottom: 50px;
+    justify-content: center;
 }
 
 * {
