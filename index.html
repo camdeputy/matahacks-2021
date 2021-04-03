@@ -3,39 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rocket2Trees - Understand modern carbon emissions</title>
+    <title>Rocket2Trees</title>
     <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-    <div>
-        <header>
-            <div class="title">
-                <h1>Rocket2Trees - Understanding CO2 Emissions From Modern Rockets</h1>
-            </div>
-        </header>
+    <script src="app.js"></script>
 
-        <div class="rockets">
-            <div class="rocket-title">
-                <h3>Pick a rocket...</h3>
-            </div>
-            <div class="dropdown">
-                <button class="box">Select a rocket model</button>
-                <div class="drop-content">
-                  <a href="#">Falcon 9</a>
-                  <a href="#">Titan 2</a>
-                  <a href="#">Space Shuttle</a>
-                </div>
-              </div>
+    <header>
+        <div class="title">
+            <h1>Rocket2Trees<span> - Understanding Modern Carbon Emissions</span></h1>
         </div>
+    </header>
 
-        <div class="trees">
-            <div class="trees-title">
-                <h3>Based on your results...</h3>
+    <div class="rockets">
+        <div class="rocket-title">
+            <h3>Pick a rocket...</h3>
+        </div>
+        <div class="dropdown">
+            <button class="box">Select a rocket model</button>
+            <div class="drop-content">
+                <a href="#" onclick="myFunction('titan2')">Titan II</a>
+                <a href="#" onclick="myFunction('soyuzfg')">Soyuz FG</a>
+                <a href="#" onclick="myFunction('atlas22')">Atlas V N22</a>
+                <a href="#" onclick="myFunction('falcon9')">Falcon 9 B5</a>
+                <a href="#" onclick="myFunction('delta4')">Delta IV H</a>
+                <a href="#" onclick="myFunction('spaceshuttle')">Space Shuttle</a>
+                <a href="#" onclick="myFunction('sls')">SLS</a>
+                <a href="#" onclick="myFunction('starship')">Starship / Super Heavy</a>
             </div>
-            <div class="box">
-                <div class="content">
-                    <p>It will take x amount of trees 1 year in order to negate the effects of this rocket launch</p>
-                </div>
+        </div>
+    </div>
+
+    <div class="trees">
+        <div class="trees-title">
+            <h3>Based on your results...</h3>
+        </div>
+        <div class="box">
+            <div class="content">
+                <p id="text-trees"></p>
             </div>
         </div>
     </div>
