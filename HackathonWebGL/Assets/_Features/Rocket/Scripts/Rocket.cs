@@ -15,7 +15,8 @@ public class Rocket : MonoBehaviour
     void Start()
     {
         _startPosition = rocket;
-        LaunchRocket();
+        //LaunchRocket();
+        
     }
 
     // Update is called once per frame
