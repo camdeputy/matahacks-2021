@@ -7,12 +7,11 @@
     <link rel="stylesheet" href="../../Web/home/style.css"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity WebGL Player | HackathonWebGL</title>
-    <link rel="shortcut icon" href="../../Unity/TemplateData/favicon.ico">
-    <link rel="stylesheet" href="../../Unity/TemplateData/style.css">
+    <link rel="shortcut icon" href="../../UnityTemplateData/favicon.ico">
     <script src="../../Unity/TemplateData/UnityProgress.js"></script>
     <script src="../../Unity/Build/UnityLoader.js"></script>
     <script>
-      var unityInstance = UnityLoader.instantiate("unityContainer", "../../Build/RocketBuild.json", {onProgress: UnityProgress});
+      var unityInstance = UnityLoader.instantiate("unityContainer", "../../Unity/Build/NoCompression.json", {onProgress: UnityProgress});
     </script>
 </head>
 <body>
@@ -37,13 +36,13 @@
             <div class="dropdown">
                 <button class="box">Select a rocket model</button>
                 <div class="drop-content">
-                    <a href="#" onclick="myFunction('titan2')">Titan II</a>
-                    <a href="#" onclick="myFunction('soyuzfg')">Soyuz FG</a>
-                    <a href="#" onclick="myFunction('atlas22')">Atlas V N22</a>
-                    <a href="#" onclick="myFunction('falcon9')">Falcon 9 B5</a>
-                    <a href="#" onclick="myFunction('spaceshuttle')">Space Shuttle</a>
-                    <a href="#" onclick="myFunction('sls')">SLS</a>
-                    <a href="#" onclick="myFunction('starship')">Starship / Super Heavy</a>
+                    <a href="#" onclick="myFunction('titan2');unityInstance.SendMessage('JavascriptHook', 'SelectRocket', 'Titan II')">Titan II</a>
+                    <a href="#" onclick="myFunction('soyuzfg');unityInstance.SendMessage('JavascriptHook', 'SelectRocket', 'Soyuz FG')">Soyuz FG</a>
+                    <a href="#" onclick="myFunction('atlas22');unityInstance.SendMessage('JavascriptHook', 'SelectRocket', 'Atlas V N22')">Atlas V N22</a>
+                    <a href="#" onclick="myFunction('falcon9');unityInstance.SendMessage('JavascriptHook', 'SelectRocket', 'Falcon 9 B5')">Falcon 9 B5</a>
+                    <a href="#" onclick="myFunction('spaceshuttle');unityInstance.SendMessage('JavascriptHook', 'SelectRocket', 'Space Shuttle')">Space Shuttle</a>
+                    <a href="#" onclick="myFunction('sls');unityInstance.SendMessage('JavascriptHook', 'SelectRocket', 'SLS')">SLS</a>
+                    <a href="#" onclick="myFunction('starship');unityInstance.SendMessage('JavascriptHook', 'SelectRocket', 'Starship + Super Heavy')">Starship / Super Heavy</a>
                 </div>
             </div>
         </div>
@@ -59,12 +58,12 @@
             </div>
         </div>
     </div>
-    <div class="webgl-content">
-        <div id="unityContainer" style="width: 960px; height: 600px"></div>
+
+    <div class="unity-section">
+        <div id="unityContainer" style="width: 98%; height: 100%"></div>
         <div class="footer">
           <div class="webgl-logo"></div>
           <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
-          <div class="title">HackathonWebGL</div>
         </div>
     </div>
 </body>

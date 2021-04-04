@@ -49,8 +49,9 @@ header nav a {
     margin: auto;
     margin-top: 5px;
     width: 98%;
-    height: 250px;
+    height: 350px;
     background-color: rgb(25, 41, 31);
+    box-shadow: 0px 0px 10px 1px black;
 }
 
 .rockets {
@@ -113,6 +114,7 @@ header nav a {
     margin-top: 5px;
     margin-bottom: 10px;
     justify-content: center;
+    
 }
 
 * {
