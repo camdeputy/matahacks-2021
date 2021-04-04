@@ -31,6 +31,7 @@ function myFunction(rocket_name) {
 
 	var output = `It would take the ${rocket_name} rocket approximately ${total_trees} trees 1 year to offset the carbon emissions produced from launch `
 	document.getElementById("text-trees").innerHTML=output
+	document.getElementById("pick-rocket").innerHTML=rocket_name
 
 }
 
