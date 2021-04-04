@@ -6,37 +6,51 @@ public class TreeGenerator : MonoBehaviour
 {
     [SerializeField] private GameObject treePrefab;
     [SerializeField] private Transform spawnTransform;
-    [SerializeField] private float radius = 100;
-    [SerializeField] private int numPrefabsToSpawn;
-
-    private readonly List<GameObject> _prefabsSpawned = new List<GameObject>();
+    [SerializeField] private float spaceBetweenRows = .5f;
+    [SerializeField] private float delayBetweenSpawns = .1f;
     
+    private readonly List<GameObject> _prefabsSpawned = new List<GameObject>();
+    private Coroutine _coroutine;
 
-    [ContextMenu("GenerateTrees()")]
-    public void GenerateTrees()
+
+    public void GenerateTrees(int metricTonsOfCo2)
     {
-        if (_prefabsSpawned.Count > 0) DestroyPrefabs();
-        
-        for (var treeIndex = 0; treeIndex < numPrefabsToSpawn; treeIndex++)
-        {
-            var xPosition = Random.Range(-radius, radius);
-            var zPosition = Random.Range(-radius, radius);
+        if (_prefabsSpawned.Count > 0) ClearTrees();
 
-            var spawnPosition = spawnTransform.position + new Vector3(xPosition, 0, zPosition);
+        _coroutine = StartCoroutine(GenerateTreesCoroutine(metricTonsOfCo2));
+    }
+
+    private IEnumerator GenerateTreesCoroutine(int metricTonsOfCo2)
+    {
+        for (var treeIndex = 0; treeIndex < metricTonsOfCo2; treeIndex++)
+        {
+            var buffer = spaceBetweenRows * treeIndex;
+            var spawnPosition = spawnTransform.position + (-spawnTransform.forward * buffer);
             var prefabInstance = Instantiate(treePrefab, spawnPosition, spawnTransform.rotation);
             prefabInstance.SetActive(true);
             
             _prefabsSpawned.Add(prefabInstance);
+
+            yield return new WaitForSeconds(delayBetweenSpawns);
         }
     }
-
-    private void DestroyPrefabs()
+    
+    public void ClearTrees()
     {
+        if (_coroutine != null) StopCoroutine(_coroutine);
+        _coroutine = null;
+
         foreach (var prefabSpawned in _prefabsSpawned)
         {
             Destroy(prefabSpawned);
         }
         
         _prefabsSpawned.Clear();
+    }
+    
+    [ContextMenu("Test()")]
+    public void Test()
+    {
+        GenerateTrees(425);
     }
 }

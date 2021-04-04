@@ -16,7 +16,8 @@ public class JavascriptHook : MonoBehaviour
     public TextMeshProUGUI fuelType;
 
     [SerializeField] private FirebaseDataHandler firebaseDataHandler;
-
+    [SerializeField] private TreeGenerator treeGenerator;
+    
     private Dictionary<string, string> _defaultTextValues;
     
     //FIELD NAMES MUST MATCH FIREBASE FIELD NAMES
@@ -54,6 +55,7 @@ public class JavascriptHook : MonoBehaviour
         rocketSelector.SelectAndSetLaunchRocket(rocketName);
         
         PopulateUI(rocketName);
+        GenerateTrees(rocketName);
     }
 
     private void PopulateUI(string rocketName)
@@ -76,6 +78,12 @@ public class JavascriptHook : MonoBehaviour
         fuelType.text = $"{_defaultTextValues[FUEL_TYPE]} {fuelTypeValue}";
     }
 
+    private void GenerateTrees(string rocketName)
+    {
+        var tonsOfCo2 = Int32.Parse(firebaseDataHandler.GetFieldString(rocketName, CO2));
+        treeGenerator.GenerateTrees(tonsOfCo2);     //Number of trees generated is tonsOfC02 * 50
+    }
+    
     private void ClearUI()
     {
         name.text = $"{_defaultTextValues[NAME]}";
@@ -95,21 +103,22 @@ public class JavascriptHook : MonoBehaviour
     private IEnumerator TestCoroutine()
     {
         //ROCKET NAMES MUST MATCH FIREBASE NAMES
-        PopulateUI("Atlas V N22");
+        SelectRocket("Atlas V N22");
         yield return new WaitForSeconds(TEST_DELAY);
-        PopulateUI("Falcon 9");
+        SelectRocket("Falcon 9");
         yield return new WaitForSeconds(TEST_DELAY);
-        PopulateUI("SLS");
+        SelectRocket("SLS");
         yield return new WaitForSeconds(TEST_DELAY);
-        PopulateUI("Soyuz FG");
+        SelectRocket("Soyuz FG");
         yield return new WaitForSeconds(TEST_DELAY);
-        PopulateUI("Space Shuttle");
+        SelectRocket("Space Shuttle");
         yield return new WaitForSeconds(TEST_DELAY);
-        PopulateUI("Starship + Super Heavy");
+        SelectRocket("Starship + Super Heavy");
         yield return new WaitForSeconds(TEST_DELAY);
-        PopulateUI("Titan II");
+        SelectRocket("Titan II");
         yield return new WaitForSeconds(TEST_DELAY);
         
         ClearUI();
+        treeGenerator.ClearTrees();
     }
 }
