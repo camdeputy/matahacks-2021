@@ -43,6 +43,7 @@ header nav a {
 	max-width: 300px;
 	margin: auto;
 	text-align: center;
+	border-radius: 50px 50px 50px 50px;
   }
   
 
@@ -69,4 +70,15 @@ header nav a {
 
 img {
 	border-radius: 50%;
+}
+
+.container {
+	margin-top: 1%
+}
+
+.contributors {
+	text-align: center;
+	font-size: 35px;
+	margin-top: 2%;
+	color: #92b4a7;
 }
