@@ -19,7 +19,6 @@ public class CameraZoom : MonoBehaviour
     void Update()
     {
         var distance = Vector3.Distance(transform.position, target.position);
-        Debug.Log(distance);
     }
 
     public void StartZoomIn()
