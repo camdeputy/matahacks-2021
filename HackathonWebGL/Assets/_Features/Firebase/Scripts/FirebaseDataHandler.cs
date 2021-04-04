@@ -11,7 +11,7 @@ public class FirebaseDataHandler : MonoBehaviour
     private Dictionary<string, Dictionary<string, string>> _rocketData;
     
     private const string FIREBASE_DOMAIN = "https://rocket2trees-default-rtdb.firebaseio.com";
-    private const string ERROR = "ERROR";
+    private const string ERROR_MESSAGE = "ERROR";
 
 
     private void Awake()
@@ -61,18 +61,18 @@ public class FirebaseDataHandler : MonoBehaviour
         _firebase.GetValue(FirebaseParam.Empty.OrderByKey().LimitToFirst(2));
     }
 
-    public string GetData(string rocket, string field)
+    public string GetFieldString(string rocket, string field)
     {
         if (!_rocketData.ContainsKey(rocket))
         {
             Debug.Log($"{rocket} is not a valid key");
-            return ERROR;
+            return ERROR_MESSAGE;
         }
 
         if (!_rocketData[rocket].ContainsKey(field))
         {
             Debug.Log($"{field} is not a valid key for {rocket}");
-            return ERROR;
+            return ERROR_MESSAGE;
         }
 
         return _rocketData[rocket][field];

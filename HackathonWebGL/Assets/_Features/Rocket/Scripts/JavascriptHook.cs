@@ -19,6 +19,7 @@ public class JavascriptHook : MonoBehaviour
 
     private Dictionary<string, string> _defaultTextValues;
     
+    //FIELD NAMES MUST MATCH FIREBASE FIELD NAMES
     private const string NAME = "Name";
     private const string CO2 = "CO2";
     private const string FUEL_TYPE = "Fuel Type";
@@ -59,19 +60,19 @@ public class JavascriptHook : MonoBehaviour
     {
         name.text = $"{_defaultTextValues[NAME]} {rocketName}";
         
-        var co2Value = firebaseDataHandler.GetData(rocketName, CO2);
+        var co2Value = firebaseDataHandler.GetFieldString(rocketName, CO2);
         co2.text = $"{_defaultTextValues[CO2]} {co2Value}";
         
-        var kgCo2Value = firebaseDataHandler.GetData(rocketName, KG_CO2);
+        var kgCo2Value = firebaseDataHandler.GetFieldString(rocketName, KG_CO2);
         kg_co2.text = $"{_defaultTextValues[KG_CO2]} {kgCo2Value}";
         
-        var passengersValue = firebaseDataHandler.GetData(rocketName, PASSENGERS);
+        var passengersValue = firebaseDataHandler.GetFieldString(rocketName, PASSENGERS);
         passengers.text = $"{_defaultTextValues[PASSENGERS]} {passengersValue}";
         
-        var tonsPerPassengerValue = firebaseDataHandler.GetData(rocketName, TONS_CO2_PASSENGERS);
+        var tonsPerPassengerValue = firebaseDataHandler.GetFieldString(rocketName, TONS_CO2_PASSENGERS);
         tons_co2_passenger.text = $"{_defaultTextValues[TONS_CO2_PASSENGERS]} {tonsPerPassengerValue}";
         
-        var fuelTypeValue = firebaseDataHandler.GetData(rocketName, FUEL_TYPE);
+        var fuelTypeValue = firebaseDataHandler.GetFieldString(rocketName, FUEL_TYPE);
         fuelType.text = $"{_defaultTextValues[FUEL_TYPE]} {fuelTypeValue}";
     }
 
@@ -93,7 +94,7 @@ public class JavascriptHook : MonoBehaviour
 
     private IEnumerator TestCoroutine()
     {
-        //NAMES MUST MATCH FIREBASE NAMES
+        //ROCKET NAMES MUST MATCH FIREBASE NAMES
         PopulateUI("Atlas V N22");
         yield return new WaitForSeconds(TEST_DELAY);
         PopulateUI("Falcon 9");
