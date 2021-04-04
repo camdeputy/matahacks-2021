@@ -7,6 +7,7 @@ public class RocketSelector : MonoBehaviour
     public List<GameObject> showcaseRocketList = new List<GameObject>();
     public List<GameObject> launchRocketList = new List<GameObject>();
     public string tempRocketName;
+    public GameObject currRocket;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +40,7 @@ public class RocketSelector : MonoBehaviour
         for(int i=0; i < launchRocketList.Count; i++){
             if(launchRocketList[i].name == rocketName) {
                 launchRocketList[i].SetActive(true);
+                currRocket = launchRocketList[i];
             }else{
                 launchRocketList[i].SetActive(false);
             }

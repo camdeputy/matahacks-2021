@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Features/Firebase/Scenes/__Kevin_Firebase.unity
-    guid: e566a70201c922e4ba17df852f6e920f
+    path: Assets/_Features/Trees/Scenes/__Cody_Tree_Camera.unity
+    guid: 84c9174674e304066b4c0223a4523f81
   m_configObjects: {}

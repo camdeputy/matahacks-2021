@@ -55,7 +55,7 @@ public class JavascriptHook : MonoBehaviour
         rocketSelector.SelectAndSetLaunchRocket(rocketName);
         
         PopulateUI(rocketName);
-        GenerateTrees(rocketName);
+        //GenerateTrees(rocketName);
     }
 
     private void PopulateUI(string rocketName)
@@ -78,9 +78,9 @@ public class JavascriptHook : MonoBehaviour
         fuelType.text = $"{_defaultTextValues[FUEL_TYPE]} {fuelTypeValue}";
     }
 
-    private void GenerateTrees(string rocketName)
+    public void GenerateTrees()
     {
-        var tonsOfCo2 = Int32.Parse(firebaseDataHandler.GetFieldString(rocketName, CO2));
+        var tonsOfCo2 = Int32.Parse(firebaseDataHandler.GetFieldString(rocketSelector.currRocket.name, CO2));
         treeGenerator.GenerateTrees(tonsOfCo2);     //Number of trees generated is tonsOfC02 * 50
     }
     

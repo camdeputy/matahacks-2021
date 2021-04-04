@@ -5,16 +5,16 @@ using UnityEngine.Events;
 
 public class Rocket : MonoBehaviour
 {
-    public Transform rocket;
     public float distance;
     public float totalTimeToComplete;
     private Transform _startPosition;
     public UnityEvent rocketHasLanded;
+    public RocketSelector rocketSelector;
     
     // Start is called before the first frame update
     void Start()
     {
-        _startPosition = rocket;
+        //_startPosition = rocket;
         //LaunchRocket();
         
     }
@@ -27,7 +27,7 @@ public class Rocket : MonoBehaviour
     
     public void LaunchRocket()
     {
-        StartCoroutine(MovingRocket(totalTimeToComplete, rocket));
+        StartCoroutine(MovingRocket(totalTimeToComplete, rocketSelector.currRocket.transform));
     }
 
     private IEnumerator MovingRocket(float time, Transform rocket)
@@ -44,10 +44,5 @@ public class Rocket : MonoBehaviour
         }
         
         rocketHasLanded?.Invoke();
-    }
-
-    public void ResetRocket()
-    {
-        rocket.position = _startPosition.position;
     }
 }
