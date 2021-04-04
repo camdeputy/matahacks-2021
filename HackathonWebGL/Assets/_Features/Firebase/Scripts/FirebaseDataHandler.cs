@@ -25,7 +25,7 @@ public class FirebaseDataHandler : MonoBehaviour
     private void InitializeData(Firebase sender, DataSnapshot snapshot)
     {
         _rocketData = new Dictionary<string, Dictionary<string, string>>();
-        Dictionary<string, object> dict = snapshot.Value<Dictionary<string, object>>();
+        var dict = snapshot.Value<Dictionary<string, object>>();
         var rockets = snapshot.Keys;
         if (rockets == null)
         {
