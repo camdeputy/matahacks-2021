@@ -23,7 +23,6 @@
 ## Technologies 
 `Written In:` HTML/CSS/JS/C# <br>
 `Firebase` - used for storing data for unity <br>
-`echoAR` - used echoAR to render our earth model <br>
 `Unity3D` - used as our Game Engine <br>
 `WebGL` - Used to put our Unity application on a browser <br>
 `Github Pages` - Used to host our website <br>
