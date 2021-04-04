@@ -18,6 +18,10 @@ public class SpinFree : MonoBehaviour {
 	[HideInInspector]
 	public float directionChangeSpeed = 2f;
 
+	public bool xAxis;
+	public bool yAxis;
+	public bool zAxis;
+
 	// Update is called once per frame
 	void Update() {
 		if (direction < 1f) {
@@ -25,17 +29,16 @@ public class SpinFree : MonoBehaviour {
 		}
 
 		if (spin) {
-			if (clockwise) {
-				if (spinParent)
-					transform.parent.transform.Rotate(Vector3.up, (speed * direction) * Time.deltaTime);
-				else
-					transform.Rotate(Vector3.up, (speed * direction) * Time.deltaTime);
-			} else {
-				if (spinParent)
-					transform.parent.transform.Rotate(-Vector3.up, (speed * direction) * Time.deltaTime);
-				else
-					transform.Rotate(-Vector3.up, (speed * direction) * Time.deltaTime);
-			}
+			Spin();
 		}
+	}
+
+	public void Spin(){
+		if(xAxis)
+			transform.Rotate(Vector3.up, (speed * direction) * Time.deltaTime);
+		if(yAxis)
+			transform.Rotate(Vector3.forward, (speed * direction) * Time.deltaTime);
+		if(zAxis)
+			transform.Rotate(Vector3.right, (speed * direction) * Time.deltaTime);
 	}
 }
