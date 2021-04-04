@@ -1,5 +1,5 @@
 body {
-    background-color: #2f2f2f;
+    background-color: #1a1d26;
 }
 
 header {
@@ -9,6 +9,8 @@ header {
     border-bottom-style: solid;
     border-width: 4px;
 	font-family: 'Courier New', 'Courier', 'monospace';
+
+  
 }
 
 header span {
@@ -82,3 +84,4 @@ img {
 	margin-top: 2%;
 	color: #92b4a7;
 }
+
