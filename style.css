@@ -5,10 +5,12 @@ header {
     background-color: #92b4a7;
     border-bottom-style: solid;
     border-width: 4px;
+    font-family: 'Courier New', 'Courier', 'monospace';
 }
 
 header span {
     font-size: 23px;
+    font-family: 'Courier New', 'Courier', 'monospace';
 }
 
 .title {
