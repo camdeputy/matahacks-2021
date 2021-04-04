@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Features/Trees/Scenes/__Kevin_TreeGeneration.unity
-    guid: 7ece338783d5f7c48b2c72617a708323
+    path: Assets/_Features/Rocket/Scenes/Rocket.unity
+    guid: b3b656dbf6ebdbf4bb82676d7375d8d3
   m_configObjects: {}
