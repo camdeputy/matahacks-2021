@@ -32,6 +32,11 @@ header nav a {
     margin: 10px;
 }
 
+header nav a:hover {
+    background-color: #3e8e41;
+    box-shadow: 0px 0px 5px 5px #3e8e41;
+}
+
 .box {
     border-style: solid;
     border-color: black;
@@ -64,6 +69,17 @@ header nav a {
     position: absolute;
     top: 25%;
     right: 10%;
+}
+
+#text-trees {
+    margin: 10px;
+    font-family: 'Courier New';
+    font-size: 16px;
+}
+
+#pick-rocket {
+    font-size: 16px;
+    font-family: 'Courier New';
 }
 
 .rocket-title, .trees-title {
