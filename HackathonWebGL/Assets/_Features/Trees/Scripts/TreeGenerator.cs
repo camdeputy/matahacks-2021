@@ -9,11 +9,11 @@ public class TreeGenerator : MonoBehaviour
     [SerializeField] private float radius = 100;
     [SerializeField] private int numPrefabsToSpawn;
 
-    private List<GameObject> _prefabsSpawned = new List<GameObject>();
+    private readonly List<GameObject> _prefabsSpawned = new List<GameObject>();
     
 
     [ContextMenu("GenerateTrees()")]
-    private void GenerateTrees()
+    public void GenerateTrees()
     {
         if (_prefabsSpawned.Count > 0) DestroyPrefabs();
         
