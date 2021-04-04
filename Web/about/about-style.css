@@ -1,11 +1,50 @@
 body {
-    background-color: #2f2f2f;
+    /* background-color: #2f2f2f; */
+    background-image: url("../../assets/rocket_bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover
+
 }
 
-section {
-    background-color: #92b4a7;
-}
-
-.Qs {
+.Q {
     margin: 5px;
+    color: gray;
+    font-size: 18px;
+    font-family: 'Droid serif', 'serif'; 
+
+}
+
+
+p { color: #b48608; 
+    font-family: 'Droid serif', 'serif'; 
+    font-size: 16px; 
+    font-weight: 100; 
+    font-style: italic; 
+    line-height: 24px; 
+    margin: 0 0 4px; 
+    text-align: center; 
+}
+
+.column {
+    float: left;
+    width: 40%;
+}
+  
+/* Clear floats after the columns */
+.row:after {
+content: "";
+display: table;
+clear: both;
+}
+
+#move-right {
+    margin-left: 250px;
+}
+      
+#link {
+    color: #d6b960;
+}
+
+#right {
+    text-align: center;
 }
