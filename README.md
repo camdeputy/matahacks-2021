@@ -16,8 +16,8 @@
 
 
 ## How to use: 
-`Click the Github Pages link to visit the web application:`
-#### https://camdeputy.github.io/matahacks-2021/
+`Click the Firebase hosting link to visit the web application:`
+#### https://rocket2trees.web.app
 <br>
 <br>
 
@@ -28,10 +28,9 @@
 
 ## Technologies 
 `Written In:` HTML/CSS/JS/C# <br>
-`Firebase` - used for storing data for unity <br>
+`Firebase` - hosting website and used for storing data for unity <br>
 `Unity3D` - used as our Game Engine <br>
 `WebGL` - Used to put our Unity application on a browser <br>
-`Github Pages` - Used to host our website <br>
 ### 
 <br>
 <br>
