@@ -16,32 +16,45 @@ public class FirebaseManager : MonoBehaviour
     private void Awake()
     {
         _firebase = Firebase.CreateNew(FIREBASE_DOMAIN);
-        _firebase.OnGetSuccess += GetOKHandler;
+        _firebase.OnGetSuccess += GetDataFromFirebase;
     }
     
-    void GetOKHandler(Firebase sender, DataSnapshot snapshot)
+    private void GetDataFromFirebase(Firebase sender, DataSnapshot snapshot)
     {
-        Debug.Log("[OK] Get from key: <" + sender.FullKey + ">");
-        Debug.Log("[OK] Raw Json: " + snapshot.RawJson);
-
         Dictionary<string, object> dict = snapshot.Value<Dictionary<string, object>>();
-        List<string> keys = snapshot.Keys;
-
-        if (keys != null)
-            foreach (string key in keys)
+        var rockets = snapshot.Keys;
+        if (rockets == null)
+        {
+            Debug.Log($"{nameof(rockets)} is null.");
+            return;
+        }
+            
+        foreach (var rocket in rockets)
+        {
+            Debug.Log($"{nameof(rocket)}={rocket}");
+            if (!dict.ContainsKey(rocket))
             {
-                Debug.Log(key + " = " + dict[key].ToString());
+                Debug.Log($"{rocket} is not a valid key");
+                continue;
             }
+
+            var rocketValues = (Dictionary<string, object>) dict[rocket];
+            if (rocketValues == null)
+            {
+                Debug.Log($"{nameof(rocketValues)} is null.");
+                continue;
+            }
+                
+            foreach (var value in rocketValues)
+            {
+                Debug.Log($"{nameof(value.Key)}={value.Key} {nameof(value.Value)}={value.Value}");
+            }
+        }
     }
 
     [ContextMenu("TestGet()")]
     public void TestGet()
     {
         _firebase.GetValue(FirebaseParam.Empty.OrderByKey().LimitToFirst(2));
-    }
-
-    void DebugLog(string str)
-    {
-        Debug.Log(str);
     }
 }
