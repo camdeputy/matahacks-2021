@@ -5,7 +5,7 @@
 <br>
 
 ## What is this project?
-`The goal of this project was to create an application that visualized the negative impacts of rocket fuel emissions on the environment. We use Unity to develop our visualization that renders once a user picks a rocket to 'launch.' In order to accurately simulate a rocket launches impact on the climate we pulled different resouces [found under sources] to calculate a variety of different rockets co2 ouput per full tank.`
+`We have created a web application with integrated WebGL. The goal of this project was to create a vizualization of the impact of rocket fuel emissions in the atmosphere. To achieve this, we use Unity to generate the amount of trees it would take in a year to negate the effects of this rocket exhausting its entire fuel tank. We also use Unity to develop our visualization that renders once a user picks a rocket to 'launch.' In order to accurately simulate a rocket launches impact on the climate we pulled different resouces [found under sources] to calculate a variety of different rockets co2 ouput per full tank.`
 <br>
 <br>
 
@@ -15,8 +15,14 @@
 <br>
 
 
-## How to build: 
-`gh repo clone camdeputy/matahacks-2021`
+## How to use: 
+`Click the Github Pages link to visit the web application:`
+#### https://camdeputy.github.io/matahacks-2021/
+<br>
+<br>
+
+## What's next?
+`Our future goals for this project is to add more data on emissions from cars, factories, etc. We also hope to port this project to AR using EchoAR.`
 <br>
 <br>
 
